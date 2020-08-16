@@ -1,8 +1,8 @@
 'use strict'
 
 const app = require('./app')
-const port = process.env.PORT || 3000
+const config = require('./config')
 
-app.listen(port, () => {
-	console.log(`Server started on port http://localhost:${port}`)
+app.listen(config.port, () => {
+	console.log(`Server started on port http://localhost:${config.port}`)
 })
