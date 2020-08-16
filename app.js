@@ -4,13 +4,10 @@ const express = require('express')
 const bodyParse = require('body-parser')
 
 const app = express()
-
-// Controllers
-const securityCtrl = require('./controllers/user/security')
+const api = require('./routes')
 
 app.use(bodyParse.urlencoded({ extended: false }))
 app.use(bodyParse.json())
-
-app.post('/api/login', securityCtrl.login)
+app.use('/api',api)
 
 module.exports = app
