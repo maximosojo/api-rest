@@ -12,6 +12,10 @@ git clone https://github.com/maximosojo/api-rest.git
 - Express		^4.17.1
 - Body Parser 	^1.19.0
 - Nodemon		^2.0.4
+- Sequelize		^6.3.4
+- Mysql2		^2.1.0
+
+#### Nota: Esta configurado para trabajar con Mysql, puede ser adaptado a otras bases de datos soportadas por Sequelize o remover, instalar y configurar MongoDB
 
 ### Licencia
 
