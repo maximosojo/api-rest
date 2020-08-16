@@ -7,7 +7,7 @@ const app = express()
 const port = process.env.PORT || 3000
 
 // Controllers
-const securityCtrl = require('./controller/user/security')
+const securityCtrl = require('./controllers/user/security')
 
 app.use(bodyParse.urlencoded({ extended: false }))
 app.use(bodyParse.json())

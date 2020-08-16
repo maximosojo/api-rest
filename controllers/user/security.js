@@ -5,10 +5,10 @@ function login(req, res) {
 }
 
 function logout(req, res) {
-
+	res.send('NOT IMPLEMENTED: Security logout GET');
 }
 
-exports = {
+module.exports = {
 	login,
 	logout
 }
