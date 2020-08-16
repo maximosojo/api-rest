@@ -16,3 +16,16 @@ git clone https://github.com/maximosojo/api-rest.git
 ### Licencia
 
 Este paquete está bajo la licencia MIT. Ver la licencia completa. [LICENSE](LICENSE)
+
+### Fix
+
+Nodemon
+Error
+``` bash
+[nodemon] Internal watch failed: ENOSPC: System limit for number of file watchers reached, watch
+```
+
+Solution
+``` bash
+echo fs.inotify.max_user_watches=582222 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
+```
