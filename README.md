@@ -11,6 +11,7 @@ git clone https://github.com/maximosojo/api-rest.git
 
 - Express		^4.17.1
 - Body Parser 	^1.19.0
+- Nodemon		^2.0.4
 
 ### Licencia
 
