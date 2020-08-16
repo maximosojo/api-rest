@@ -6,13 +6,14 @@ const bodyParse = require('body-parser')
 const app = express()
 const port = process.env.PORT || 3000
 
+// Controllers
+const securityCtrl = require('./controller/user/security')
+
 app.use(bodyParse.urlencoded({ extended: false }))
 app.use(bodyParse.json())
 
-app.get('/', function (req, res) {
-	res.send('Hola Munto!')
-})
+app.post('/api/login', securityCtrl.login)
 
 app.listen(port, () => {
-	console.log(`Server initialize in http://localhost:${port}`)
+	console.log(`Server started on port http://localhost:${port}`)
 })
