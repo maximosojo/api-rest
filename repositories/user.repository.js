@@ -1,11 +1,11 @@
 'use strict'
 
-const BaseRepository = require("./base.repository");
+const BaseRepository = require("./base.repository")
 
 class UserRepository extends BaseRepository {
   constructor({ db }) {
-    super(db, "User");
+    super(db, "User")
   }
 }
 
-module.exports = UserRepository;
+module.exports = UserRepository

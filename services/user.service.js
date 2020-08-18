@@ -1,11 +1,11 @@
 'use strict'
 
-const BaseService = require("./base.service");
+const BaseService = require("./base.service")
 
 class UserService extends BaseService {
   constructor({ UserEntity }) {
-    super(UserEntity);
+    super(UserEntity)
   }
 }
 
-module.exports = UserService;
+module.exports = UserService

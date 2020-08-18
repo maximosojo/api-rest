@@ -1,8 +1,10 @@
-const mapper = require("automapper-js");
+'use strict'
+
+const mapper = require("automapper-js")
 
 class SecurityController {
   constructor({ UserService }) {
-    this._userService = UserService;
+    this._userService = UserService
   }
 
   async login(req, res) {
@@ -10,8 +12,8 @@ class SecurityController {
   }
 
   async logout(req, res) {
-    res.send('NOT IMPLEMENTED: Security logout GET');
+    res.send('NOT IMPLEMENTED: Security logout GET')
   }
 }
 
-module.exports = SecurityController;
+module.exports = SecurityController
