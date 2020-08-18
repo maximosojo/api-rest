@@ -7,6 +7,7 @@ module.exports = function({ SecurityController }) {
 
   	router.post('/login', SecurityController.login.bind(SecurityController))
 	router.get('/logout', SecurityController.logout.bind(SecurityController))
+	router.post('/register', SecurityController.register.bind(SecurityController))
 
   	return router
 }

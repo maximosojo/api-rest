@@ -2,8 +2,7 @@
 
 const mapper = require("automapper-js")
 
-class BaseEntity
- {
+class BaseEntity {
   constructor(EntityRepository, entityToMap) {
     this._entityRepository = EntityRepository
     this.entityToMap = entityToMap
