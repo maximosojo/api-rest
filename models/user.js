@@ -1,11 +1,13 @@
 'use strict'
 
-const Sequelize = require('sequelize')
-
-const User = sequelize.define('users',{
-	id: { type: Sequelize.SMALLINT, primaryKey: true },
-	email: { type: Sequelize.STRING, unique: true, lowercase: true },
-	password: { type: Sequelize.STRING, select: false },
-	createdAt: { type: Sequelize.DATE, default: Date.now() }
-	lastLogin: Sequelize.DATE
-})
+module.exports = (sequelize, DataTypes) => {
+  	const User = sequelize.define("users",{
+      		id: { type: DataTypes.SMALLINT, primaryKey: true },
+			email: { type: DataTypes.STRING, unique: true, lowercase: true },
+			password: { type: DataTypes.STRING, select: false },
+			createdAt: { type: DataTypes.DATE, default: Date.now() },
+			lastLogin: DataTypes.DATE
+    	}
+  	)  	
+  	return User;
+};
