@@ -1,9 +1,10 @@
 'use strict'
 
 class UserDto {
-  id = 0
-  email = ""
-  password = ""
+	constructor(){
+	  this.email = "";
+	  this.password = "";
+	}
 }
 
 module.exports = UserDto

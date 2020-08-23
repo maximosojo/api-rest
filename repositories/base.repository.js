@@ -15,6 +15,7 @@ class BaseRepository {
   }
 
   create(entity) {
+    console.log(entity)
     return this._db[this.entity].create(entity)
   }
 

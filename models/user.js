@@ -1,6 +1,7 @@
 'use strict'
 
 const { Model } = require('sequelize')
+
 module.exports = (sequelize, DataTypes) => {
   class user extends Model {
     static associate(models) {
@@ -14,7 +15,11 @@ module.exports = (sequelize, DataTypes) => {
     lastLogin: DataTypes.DATE
   }, {
     sequelize,
-    modelName: 'user',
+    modelName: 'User',
+    paranoid: true,
+    underscored: true,
+    freezeTableName: true,
+    tableName: 'users'
   })
   
   return user
