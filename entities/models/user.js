@@ -3,6 +3,7 @@
 class User {
 	constructor(){
 		this.email = null;
+		this.password = null;
 	}
 }
 
