@@ -2,6 +2,7 @@
 
 const mapper = require("automapper-js")
 const { UserDto } = require("./dtos")
+const Sequelize = require('sequelize')
 
 class SecurityController {
   constructor({ UserService }) {
@@ -17,12 +18,28 @@ class SecurityController {
   }
 
   async register(req, res) {
-    const { body } = req
-    const createdUser = await this._userService.create(body)
-    const user = mapper(UserDto, createdUser)
-    return res.status(200).send({
-		payload: user
-    })
+    const response = {}
+    
+    try {
+      const { body } = req
+      const createdUser = await this._userService.create(body)
+      const user = mapper(UserDto, createdUser)
+      const response = res.status(200).send({
+  		  message: "User successfully created."
+      })
+    } catch(e) {
+      if (e instanceof Sequelize.ValidationError) {
+        let message = ""
+        e.errors.forEach((error) => {
+          message = error.message
+        })
+        const response = res.status(400).send({
+          message: message
+        })
+      }
+    }
+
+    return response
   }
 }
 

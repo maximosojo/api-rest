@@ -2,6 +2,7 @@
 
 class UserDto {
 	constructor(){
+	  this.username = "";
 	  this.email = "";
 	  this.password = "";
 	}
