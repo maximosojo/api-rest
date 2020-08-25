@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  SecurityController: require("./security.controller")
+  SecurityController: require('./security.controller')
 }

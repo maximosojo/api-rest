@@ -1,6 +1,6 @@
 'use strict'
 
-const mapper = require("automapper-js")
+const mapper = require('automapper-js')
 
 class BaseEntity {
   constructor(EntityRepository, entityToMap) {

@@ -1,6 +1,6 @@
 'use strict'
 
-const { Router } = require("express")
+const { Router } = require('express')
 
 module.exports = function({ SecurityController }) {
   	const router = Router()

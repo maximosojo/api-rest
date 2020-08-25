@@ -1,8 +1,8 @@
 'use strict'
 
-const BaseEntity = require("./base.entity")
-const mapper = require("automapper-js")
-const { User } = require("./models")
+const BaseEntity = require('./base.entity')
+const mapper = require('automapper-js')
+const { User } = require('./models')
 
 class UserEntity extends BaseEntity {
   	constructor({ UserRepository }) {

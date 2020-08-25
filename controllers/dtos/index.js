@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  UserDto: require("./user.dto")
+  UserDto: require('./user.dto')
 }

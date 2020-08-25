@@ -1,5 +1,5 @@
 'use strict'
 
 module.exports = {
-  UserEntity: require("./user.entity")
+  UserEntity: require('./user.entity')
 }

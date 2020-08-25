@@ -1,28 +1,28 @@
 'use strict'
 
-const { asClass, createContainer, asFunction, asValue } = require("awilix")
+const { asClass, createContainer, asFunction, asValue } = require('awilix')
 
 // Server
-const StartUp = require("./startup")
-const Server = require("./server")
-const config = require("./config")
-const db = require("../models")
+const StartUp = require('./startup')
+const Server = require('./server')
+const config = require('./config')
+const db = require('../models')
 
 // Routes
-const Routes = require("./routes")
-const SecurityRoutes = require("./routes/security.routes")
+const Routes = require('./routes')
+const SecurityRoutes = require('./routes/security.routes')
 
 // controllers
-const { SecurityController } = require("../controllers")
+const { SecurityController } = require('../controllers')
 
 // Entities
-const { UserEntity } = require("../entities")
+const { UserEntity } = require('../entities')
 
 // services
-const { UserService, ResponseService } = require("../services")
+const { UserService, ResponseService } = require('../services')
 
 // repositories
-const { UserRepository } = require("../repositories")
+const { UserRepository } = require('../repositories')
 
 // Container
 const container = createContainer()
