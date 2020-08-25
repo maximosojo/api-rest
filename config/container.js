@@ -19,7 +19,7 @@ const { SecurityController } = require("../controllers")
 const { UserEntity } = require("../entities")
 
 // services
-const { UserService } = require("../services")
+const { UserService, ResponseService } = require("../services")
 
 // repositories
 const { UserRepository } = require("../repositories")
@@ -42,7 +42,8 @@ container
 		db: asValue(db)
 	})
 	.register({
-	    UserService: asClass(UserService).singleton()
+	    UserService: asClass(UserService).singleton(),
+	    ResponseService: asClass(ResponseService).singleton()
 	})
 	.register({
 		UserRepository: asClass(UserRepository).singleton()

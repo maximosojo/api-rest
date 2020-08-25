@@ -5,8 +5,9 @@ const { UserDto } = require("./dtos")
 const Sequelize = require('sequelize')
 
 class SecurityController {
-  constructor({ UserService }) {
+  constructor({ UserService, ResponseService}) {
     this._userService = UserService
+    this._responseService = ResponseService
   }
 
   async login(req, res) {
@@ -14,13 +15,12 @@ class SecurityController {
     const { body } = req
     const entity = await this._userService.login(body)
     if (entity && await entity.validPassword(body.password)) {
-      response = res.status(200).send({
+      let content = {
         token: ""
-      })
+      }
+      response = this._responseService.create(res,content)
     } else {
-      response = res.status(401).send({
-        message: "Bad credentials."
-      })
+      response = this._responseService.error(res,"Bad credentials.",401)
     }
 
     return response
@@ -36,18 +36,14 @@ class SecurityController {
     try {
       const { body } = req
       const entity = await this._userService.create(body)
-      response = res.status(200).send({
-  		  message: "User successfully created."
-      })
+      response = this._responseService.message(res,"User successfully created.")
     } catch(e) {
       if (e instanceof Sequelize.ValidationError) {
         let message = ""
         e.errors.forEach((error) => {
           message = error.message
         })
-        response = res.status(400).send({
-          message: message
-        })
+        response = this._responseService.error(res,message)
       }
     }
 
