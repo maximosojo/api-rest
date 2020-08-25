@@ -77,13 +77,12 @@ module.exports = (sequelize, DataTypes) => {
         const salt = bcrypt.genSaltSync();
         user.password = bcrypt.hashSync(user.password, salt);
       }
-    },
-    instanceMethods: {
-      validPassword: function(password) {
-        return bcrypt.compareSync(password, this.password);
-      }
-    } 
+    }
   })
+
+  user.prototype.validPassword = async function(password) {
+      return await bcrypt.compareSync(password, this.password);
+  }
   
   return user
 }

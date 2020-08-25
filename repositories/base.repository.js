@@ -6,11 +6,11 @@ class BaseRepository {
     this.entity = entity
   }
 
-  getAll() {
+  findAll() {
     return this._db[this.entity].findAll()
   }
 
-  get(id) {
+  find(id) {
     return this._db[this.entity].findOne({ where: { id } })
   }
 

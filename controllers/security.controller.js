@@ -10,7 +10,20 @@ class SecurityController {
   }
 
   async login(req, res) {
-    res.send('Hola Munto desde Login!')
+    let response = {};
+    const { body } = req
+    const entity = await this._userService.login(body)
+    if (entity && await entity.validPassword(body.password)) {
+      response = res.status(200).send({
+        token: ""
+      })
+    } else {
+      response = res.status(401).send({
+        message: "Bad credentials."
+      })
+    }
+
+    return response
   }
 
   async logout(req, res) {
@@ -18,13 +31,12 @@ class SecurityController {
   }
 
   async register(req, res) {
-    const response = {}
+    let response = {}
     
     try {
       const { body } = req
-      const createdUser = await this._userService.create(body)
-      const user = mapper(UserDto, createdUser)
-      const response = res.status(200).send({
+      const entity = await this._userService.create(body)
+      response = res.status(200).send({
   		  message: "User successfully created."
       })
     } catch(e) {
@@ -33,7 +45,7 @@ class SecurityController {
         e.errors.forEach((error) => {
           message = error.message
         })
-        const response = res.status(400).send({
+        response = res.status(400).send({
           message: message
         })
       }

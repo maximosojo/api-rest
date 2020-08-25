@@ -8,13 +8,13 @@ class BaseEntity {
     this.entityToMap = entityToMap
   }
 
-  async getAll() {
-    const entities = await this._entityRepository.getAll()
+  async findAll() {
+    const entities = await this._entityRepository.findAll()
     return entities.map(entity => mapper(this.entityToMap, entity.toJSON()))
   }
 
-  async get(id) {
-    const entity = await this._entityRepository.get(id)
+  async find(id) {
+    const entity = await this._entityRepository.find(id)
     if (!entity) return null
     return mapper(this.entityToMap, entity.toJSON())
   }

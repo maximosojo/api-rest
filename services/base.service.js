@@ -5,13 +5,13 @@ class BaseService {
     this._entity = Entity
   }
 
-  async getAll() {
-    const entities = await this._entity.getAll()
+  async findAll() {
+    const entities = await this._entity.findAll()
     return entities
   }
 
-  async get(id) {
-    const entity = await this._entity.get(id)
+  async find(id) {
+    const entity = await this._entity.find(id)
     return entity
   }
 
