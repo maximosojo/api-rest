@@ -18,6 +18,9 @@ const { SecurityController } = require('../controllers')
 // Entities
 const { UserEntity } = require('../entities')
 
+// Middlewares
+const { AuthMiddleware } = require('../middlewares')
+
 // services
 const { UserService, ResponseService } = require('../services')
 
@@ -40,6 +43,9 @@ container
   	})
 	.register({
 		db: asValue(db)
+	})
+	.register({
+		AuthMiddleware: asClass(AuthMiddleware).singleton()
 	})
 	.register({
 	    UserService: asClass(UserService).singleton(),

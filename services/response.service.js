@@ -1,9 +1,7 @@
 'use strict'
 
 class ResponseService {
-  	constructor() {
-    }
-
+  
   	async create(res, content, code = 200) {  		
     	let response = res.status(code).send(content)
     	return response

@@ -25,11 +25,7 @@ class SecurityController {
 
     return response
   }
-
-  async logout(req, res) {
-    res.send('NOT IMPLEMENTED: Security logout GET')
-  }
-
+  
   async register(req, res) {
     let response = {}
     
@@ -47,6 +43,11 @@ class SecurityController {
       }
     }
 
+    return response
+  }
+
+  async profile(req, res) {
+    let response = this._responseService.message(res,'User access.')
     return response
   }
 }

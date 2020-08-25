@@ -12,6 +12,6 @@ module.exports = {
 	JWT_PASSPHRASE: '',
 	JWT_TOKEN_TTL: {
 		number: 14,
-		perdio: 'days'
+		period: 'days'
 	}
 }
