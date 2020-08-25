@@ -9,5 +9,9 @@ module.exports = {
 		host: 'localhost',
 		dialect: 'mysql'
 	},
-	JWT_PASSPHRASE: ''
+	JWT_PASSPHRASE: '',
+	JWT_TOKEN_TTL: {
+		number: 14,
+		perdio: 'days'
+	}
 }

@@ -16,10 +16,11 @@ class UserService extends BaseService {
   }
 
   async generateToken(user) {
+  	const ttl = this._config.JWT_TOKEN_TTL
   	const payload = {
   		sub: user.id,
   		iat: moment().unix(),
-  		exp: moment().add(14, 'days').unix()
+  		exp: moment().add(ttl.number,ttl.period).unix()
   	}
   	
   	return jwt.encode(payload, this._config.JWT_PASSPHRASE)
