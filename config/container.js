@@ -49,7 +49,7 @@ container
 	})
 	.register({
 	    UserService: asClass(UserService).singleton(),
-	    ResponseService: asClass(ResponseService).singleton()
+		ResponseService: asClass(ResponseService).singleton()
 	})
 	.register({
 		UserRepository: asClass(UserRepository).singleton()
