@@ -3,7 +3,6 @@
 const mapper = require('automapper-js')
 const { UserDto } = require('./dtos')
 const Sequelize = require('sequelize')
-const TokenService = require('../services/token.service')
 
 class SecurityController {
   constructor({ UserService, ResponseService }) {
@@ -12,19 +11,14 @@ class SecurityController {
   }
 
   async login(req, res) {
-    let response = {};
     const { body } = req
-    const entity = await this._userService.login(body)
-    if (entity && await entity.validPassword(body.password)) {
-      let content = {
-        token: TokenService.generateToken(entity)
-      }
-      response = this._responseService.create(res,content)
-    } else {
-      response = this._responseService.error(res,'Bad credentials.',401)
-    }
-
-    return response
+    this._userService.login(body)
+    .then(response => {
+      return res.status(200).send(response)
+    })
+    .catch(response => {
+      return res.status(response.code).send(response)
+    })
   }
   
   async register(req, res) {

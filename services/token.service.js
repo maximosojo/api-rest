@@ -21,8 +21,8 @@ function decodeToken(token) {
             const payload = jwt.decode(token, config.JWT_PASSPHRASE)
             if (payload.exp <= moment().unix()) {
                 reject({
-                code: 401,
-                message: 'Expired JWT Token'
+                    code: 401,
+                    message: 'Expired JWT Token'
                 })                
             }
 

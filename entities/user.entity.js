@@ -11,8 +11,7 @@ class UserEntity extends BaseEntity {
 
   	async login(entity) {
 	    entity = mapper(this.entityToMap, entity)
-	    const loginEntity = await this._entityRepository.login(entity)
-	    return loginEntity
+	    return await this._entityRepository.login(entity)
 	}
 }
 
